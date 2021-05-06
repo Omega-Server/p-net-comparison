@@ -6,7 +6,7 @@
 
 ## Download MNIST images and put into research/ folder:
 
-- Download MNIST images - **[Python37](https://hlaiman.com/bin/dmitriy/images.rar)** archive, unzip and put into **research/** folder.
+- Download MNIST images - **[images](https://hlaiman.com/bin/dmitriy/images.rar)** archive, unzip and put into **research/** folder.
 
 <br/>
 
