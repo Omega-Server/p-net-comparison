@@ -51,6 +51,7 @@ def test_multioutput_pnet_model_with_csv(pnet, test_data_path, classes_num):
 	right = 0
 	inference_time = 0
 
+
 	for i in df.index:
 		current_example += 1
 		test_sample = list(df.iloc[i])[:-classes_num]
@@ -62,10 +63,12 @@ def test_multioutput_pnet_model_with_csv(pnet, test_data_path, classes_num):
 
 		y_array = list(df.iloc[i])[-classes_num:]
 		y = np.argmax(y_array)
+
 		if (result == y):
 			right += 1
 
-		return right, inference_time, current_example
+
+	return right, inference_time, current_example
 
 
 
