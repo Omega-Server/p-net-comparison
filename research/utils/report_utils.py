@@ -175,7 +175,7 @@ def save_report_keras(model, datasets, classes, history, name, save_path):
 	pp.close()
 
 
-def save_report_pnet(datasets, classes, history, save_path, name, pnet, pnet_type = "multioutput"):
+def save_report_pnet(datasets, classes, history, save_path, name, pnet):
 
 	report_dist_path = "../reports/" + save_path
 

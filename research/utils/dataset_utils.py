@@ -22,7 +22,7 @@ def normalize_image(x, y):
 	image = tf.cast(x / 255., tf.float32)
 	return image, y
 
-def prepare_images_from_directory(dir, image_size, batch_size):
+def prepare_images_from_directory(dir, image_size, batch_size, with_data_normalization = True):
 	ds = tf.keras.preprocessing.image_dataset_from_directory(
 		dir,
 		labels="inferred",
@@ -33,7 +33,8 @@ def prepare_images_from_directory(dir, image_size, batch_size):
 		shuffle=True,
 	)
 
-	ds = ds.map(normalize_image)
+	if with_data_normalization:
+		ds = ds.map(normalize_image)
 
 	return ds
 

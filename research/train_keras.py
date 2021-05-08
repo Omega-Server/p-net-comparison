@@ -17,7 +17,7 @@ import json
 import pandas as pd
 from utils.dataset_utils import prepare_image_generator_from_directory, prepare_images_from_directory
 from utils.report_utils import save_report_keras
-from config import img_height, img_width, batch_size, classes_num, keras_epochs, model_path, train_images_path, test_images_path
+from config import img_height, img_width, batch_size, classes_num, keras_epochs, model_path, train_images_path, test_images_path, with_keras_report
 from model import get_model
 import time
 from datetime import datetime
@@ -63,30 +63,31 @@ model.save(model_path + "/keras_model.h5")
 model_info = {"time": time_delta_dense}
 
 with open(model_path + '/keras_info.json', 'w', encoding='utf-8') as f:
-    json.dump(model_info, f, ensure_ascii=False, indent=4)
+	json.dump(model_info, f, ensure_ascii=False, indent=4)
 
-# Report
-classes = list(ds_train.class_indices)
+if with_keras_report:
+	# Report
+	classes = list(ds_train.class_indices)
 
-ds_test = prepare_images_from_directory(
-	dir=test_images_path,
-	image_size=(img_height, img_width),
-	batch_size=batch_size
-)
+	ds_test = prepare_images_from_directory(
+		dir=test_images_path,
+		image_size=(img_height, img_width),
+		batch_size=batch_size
+	)
 
-ds_train = prepare_images_from_directory(
-	dir=train_images_path,
-	image_size=(img_height, img_width),
-	batch_size=batch_size
-)
+	ds_train = prepare_images_from_directory(
+		dir=train_images_path,
+		image_size=(img_height, img_width),
+		batch_size=batch_size
+	)
 
-save_report_keras(
-	model = model,
-	datasets = [[ds_test, 'Test data'], [ds_train, 'Train data']],
-	classes = classes,
-	history = his.history,
-	save_path = "keras",
-	name = "Keras",
-)
+	save_report_keras(
+		model = model,
+		datasets = [[ds_test, 'Test data'], [ds_train, 'Train data']],
+		classes = classes,
+		history = his.history,
+		save_path = "keras",
+		name = "Keras",
+	)
 
 

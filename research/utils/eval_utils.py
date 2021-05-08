@@ -99,7 +99,7 @@ def generate_pnet_training_history(log_path, data, classes):
 			if (y_pred == y_true):
 				res += 1
 
-		print('Recognized', res, 'in', all, 'patterns from test dataset')
+		print('Recognized', res, 'in', all, 'patterns from train dataset')
 		accuracy_score = res / all
 
 		cce = tf.keras.losses.CategoricalCrossentropy()
