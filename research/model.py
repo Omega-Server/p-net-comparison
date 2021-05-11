@@ -6,21 +6,26 @@ from tensorflow.keras.layers import Conv2D, Input, MaxPooling2D, Flatten, Dense,
 from pprint import pprint
 
 
-def get_model(img_height, img_width, classes_num):
+def get_model(img_height, img_width, color_mode, classes_num):
 
-	inputs = Input(shape=(img_height, img_width, 1))
+	if color_mode == "rgb":
+		channels = 3
+	else:
+		channels = 1
 
-	x = Conv2D(8, 3, padding='same', kernel_initializer='glorot_uniform', bias_initializer='glorot_uniform')(inputs)
+	inputs = Input(shape=(img_height, img_width, channels))
+
+	x = Conv2D(16, 3, padding='same', kernel_initializer='glorot_uniform', bias_initializer='glorot_uniform')(inputs)
 	x = Activation('relu')(x)
 	x = MaxPooling2D(2, 2)(x)
 	x = Dropout(0.2)(x)
 
-	x = Conv2D(16, 3, padding='same', kernel_initializer='glorot_uniform', bias_initializer='glorot_uniform')(x)
+	x = Conv2D(32, 3, padding='same', kernel_initializer='glorot_uniform', bias_initializer='glorot_uniform')(x)
 	x = Activation('relu')(x)
 	x = MaxPooling2D(2, 2)(x)
 	x = Dropout(0.2)(x)
 
-	x = Conv2D(16, 3, padding='same', kernel_initializer='glorot_uniform', bias_initializer='glorot_uniform')(x)
+	x = Conv2D(64, 3, padding='same', kernel_initializer='glorot_uniform', bias_initializer='glorot_uniform')(x)
 	x = Activation('relu')(x)
 	x = MaxPooling2D(2, 2)(x)
 	x = Dropout(0.2)(x)

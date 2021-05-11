@@ -22,12 +22,12 @@ def normalize_image(x, y):
 	image = tf.cast(x / 255., tf.float32)
 	return image, y
 
-def prepare_images_from_directory(dir, image_size, batch_size, with_data_normalization = True):
+def prepare_images_from_directory(dir, image_size, batch_size, color_mode, with_data_normalization = True):
 	ds = tf.keras.preprocessing.image_dataset_from_directory(
 		dir,
 		labels="inferred",
 		label_mode="int",  # categorical, binary
-		color_mode="grayscale",
+		color_mode=color_mode,
 		batch_size=batch_size,
 		image_size=image_size,  # reshape if not in this size
 		shuffle=True,
@@ -39,14 +39,14 @@ def prepare_images_from_directory(dir, image_size, batch_size, with_data_normali
 	return ds
 
 
-def prepare_image_generator_from_directory(dir, image_size, batch_size, validation_split):
+def prepare_image_generator_from_directory(dir, image_size, batch_size, color_mode, validation_split):
 	datagen = ImageDataGenerator(rescale=1.0 / 255, data_format="channels_last", validation_split=validation_split)
 
 	ds_train = datagen.flow_from_directory(
 		dir,
 		target_size=image_size,
 		batch_size=batch_size,
-		color_mode="grayscale",
+		color_mode=color_mode,
 		class_mode="sparse",
 		shuffle=True,
 		subset="training",
@@ -57,7 +57,7 @@ def prepare_image_generator_from_directory(dir, image_size, batch_size, validati
 		dir,
 		target_size=image_size,
 		batch_size=batch_size,
-		color_mode="grayscale",
+		color_mode=color_mode,
 		class_mode="sparse",
 		shuffle=True,
 		subset="validation",

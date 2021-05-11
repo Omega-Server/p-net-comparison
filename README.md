@@ -1,12 +1,13 @@
-# P-Net comparison with Keras model (MNIST dataset)
+# P-Net comparison with Keras model
 
 ## Create bin/ folder and put packages into bin/ folder:
 
 - Download Python environment - **[Python37](https://hlaiman.com/bin/dmitriy/Python37.rar)** archive, unzip and put into **bin/** folder.
 
-## Download MNIST images and put into research/ folder:
+## Download images and put into research/ folder:
 
-- Download MNIST images - **[images](https://hlaiman.com/bin/dmitriy/images.rar)** archive, unzip and put into **research/** folder.
+- Download MNIST images - **[MNIST](https://hlaiman.com/bin/dmitriy/mnist.rar)** archive, unzip and put into **research/images/** folder.
+- Download CIFAR-10 images - **[CIFAR-10](https://hlaiman.com/bin/dmitriy/cifar10.rar)** archive, unzip and put into **research/images/** folder.
 
 <br/>
 

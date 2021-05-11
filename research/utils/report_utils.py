@@ -133,13 +133,13 @@ def save_report_keras(model, datasets, classes, history, name, save_path):
 	model_summary = get_model_summary(model)
 
 	loss = plot_graph(
-		[[history['loss'], 'Training data'], [history['val_loss'], 'Validation data']],
+		[[history['loss'], 'Training data']], # [history['val_loss'], 'Validation data']
 		name="Training losses",
 		legend=['Loss', 'No. epoch']
 	)
 
 	accuracy = plot_graph(
-		[[history['accuracy'], 'Training data'], [history['val_accuracy'], 'Validation data']],
+		[[history['accuracy'], 'Training data']], # [history['val_accuracy'], 'Validation data']
 		name="Model accuracy",
 		legend=['Accuracy', 'No. epoch']
 	)

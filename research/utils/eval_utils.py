@@ -13,7 +13,7 @@ import pandas as pd
 import cv2
 import numpy as np
 from utils.dataset_utils import prepare_images_from_directory
-from config import batch_size, img_height, img_width, model_path, classes_num, pnet_epochs, keras_epochs
+from config import batch_size, img_height, img_width, model_path, classes_num, pnet_epochs, keras_epochs, color_mode
 
 
 def test_keras_model(keras_model, images_path):
@@ -21,6 +21,7 @@ def test_keras_model(keras_model, images_path):
 	ds = prepare_images_from_directory(
 		dir=images_path,
 		image_size=(img_height, img_width),
+		color_mode=color_mode,
 		batch_size=batch_size
 	)
 

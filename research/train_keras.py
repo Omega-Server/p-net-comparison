@@ -17,7 +17,7 @@ import json
 import pandas as pd
 from utils.dataset_utils import prepare_image_generator_from_directory, prepare_images_from_directory
 from utils.report_utils import save_report_keras
-from config import img_height, img_width, batch_size, classes_num, keras_epochs, model_path, train_images_path, test_images_path, with_keras_report
+from config import img_height, img_width, batch_size, classes_num, keras_epochs, model_path, train_images_path, test_images_path, with_keras_report, color_mode
 from model import get_model
 import time
 from datetime import datetime
@@ -29,12 +29,14 @@ ds_train, ds_validation = prepare_image_generator_from_directory(
 	dir=train_images_path,
 	image_size=(img_height, img_width),
 	batch_size=batch_size,
-	validation_split=0.2
+	color_mode=color_mode,
+	validation_split=0.0
 )
 
 model = get_model(
 	img_height,
 	img_width,
+	color_mode=color_mode,
 	classes_num=classes_num
 )
 
@@ -72,13 +74,15 @@ if with_keras_report:
 	ds_test = prepare_images_from_directory(
 		dir=test_images_path,
 		image_size=(img_height, img_width),
-		batch_size=batch_size
+		batch_size=batch_size,
+		color_mode=color_mode
 	)
 
 	ds_train = prepare_images_from_directory(
 		dir=train_images_path,
 		image_size=(img_height, img_width),
-		batch_size=batch_size
+		batch_size=batch_size,
+		color_mode=color_mode
 	)
 
 	save_report_keras(
