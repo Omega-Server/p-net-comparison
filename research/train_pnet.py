@@ -33,6 +33,8 @@ pnet = pypnet.new(
 	outputs=classes_num,
 	intervals=0,
 	autointervals=True,
+#        interpolate=True,
+#	density=2
 )
 
 pypnet.load(pnet, 'train_data.csv')

@@ -58,7 +58,7 @@ print("\n===== Accuracy:")
 print("\nKERAS accuracy is {}".format(round(keras_accuracy, 4)))
 print("P-NET accuracy is {}".format(round(pnet_accuracy, 4)))
 
-print("\nP-NET is {} times more accurate than KERAS".format(round(pnet_accuracy / keras_accuracy, 2)))
+#print("\nP-NET is {} times more accurate than KERAS".format(round(pnet_accuracy / keras_accuracy, 2)))
 
 print("\n===== Training time:")
 print("\nKERAS training time: %s ms" % keras_training_time)
