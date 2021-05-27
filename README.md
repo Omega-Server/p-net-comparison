@@ -31,7 +31,7 @@
 
 ### train_and_compare.bat
 
-- Script for training and comaring Keras and P-Net models. It is a sequence of train_keras.bat, generate_csv.bat, train_pnet.bat and compare.bat scripts execution.
+- Script for training and comaring Keras and P-Net models. It is a sequence of train_keras.bat, train_pnet.bat and compare.bat scripts execution.
 
 
 
