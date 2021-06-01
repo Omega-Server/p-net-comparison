@@ -7,7 +7,6 @@
 ## Download images and put into research/ folder:
 
 - Download MNIST images - **[MNIST](https://hlaiman.com/bin/dmitriy/mnist.rar)** archive, unzip and put into **research/images/** folder.
-- Download CIFAR-10 images - **[CIFAR-10](https://hlaiman.com/bin/dmitriy/cifar10.rar)** archive, unzip and put into **research/images/** folder.
 
 <br/>
 
