@@ -3,7 +3,3 @@
 bin/
 
 research/images/
-research/models/
-
-research/train_data.csv
-research/test_data.csv
